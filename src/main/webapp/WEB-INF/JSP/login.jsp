@@ -1,0 +1,177 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>login !!!</title>
+<style>
+.showarea {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	width: 90%;
+	background-color: #8858b8;
+	padding: 5px;
+	margin: 10px;
+}
+
+.buttonarea {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	width: 90%;
+	background-color: #8858b8;
+	padding: 15px;
+	margin: 10px;
+}
+
+.entirearea {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.signup {
+	color: white;
+	letter-spacing: 6px;
+	font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.inputs {
+	background-color: #9e88b5;
+	width: 90%;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.element {
+	background-color: white;
+	margin-top: 10px;
+	text-align: center;
+	border-radius: 5px;
+}
+
+.table-design {
+	table-layout: fixed;
+	width: 100%;
+	background-color: #c5b4d6;
+	padding: 10px;
+	height: 250px;
+	width: 95%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	border-spacing: 20px;
+	border-radius: 15px;
+}
+
+label {
+	font-family: "Lucida Handwriting", monospace;
+	font-size: 12px;
+	word-spacing: 2px;
+	padding: 8px;
+}
+
+input {
+	border-color: white;
+}
+
+td {
+	border-radius: 5px;
+}
+
+.copyright {width =100%;
+	text-align: center;
+	margin-top: 40px;
+	font-style: oblique;
+}
+
+.title {
+	text-align: center;
+	margin: 40px;
+	background-color: #c5b4d6;
+	padding: 15px;
+	width: 90%
+}
+
+a {
+	text-decoration: none;
+}
+
+.error {
+	color: red;
+	padding: 2px;
+	background-color: #c5b4d6;
+}
+
+td:empty {
+	display: none;
+}
+.invalidDetails{
+color:red;
+font-size:bold;
+background-color:#c5b4d6;
+padding:5px;
+}
+.invalidDetails:empty{
+display:none;
+}
+</style>
+</head>
+<body>
+	<div class="title">RESUME BUILDER</div>
+	<form:form class="entirearea" action="login" method="post"
+		modelAttribute="loginuser">
+		<div class="showarea">
+			<h3 class="signup">LOGIN HERE</h3>
+		</div>
+
+		<div class="inputs">
+			<table class="table-design">
+
+				<tr class="element">
+					<td><form:label path="email">Enter e-mail:</form:label></td>
+					<td><form:input type="text" name="email" path="email" /></td>
+					<td class=error><form:errors path="email" cssClass="error" /></td>
+				</tr>
+
+
+				<tr class="element">
+					<td><form:label path="password">Enter password:</form:label></td>
+					<td><form:input type="text" name="password" path="password" /></td>
+					<td class=error><form:errors path="password" cssClass="error" /></td>
+				</tr>
+				<div class="invalidDetails">${Error}</div>
+			</table>
+
+
+
+		</div>
+		<div class="buttonarea">
+			<input type="submit" value="Login" />
+			<button type="button">
+				<a href="signup">GoTo Register</a>
+			</button>
+		</div>
+
+
+	</form:form>
+
+	<div class="copyright">
+		<p>&copy; Copyright ResumeBlog Reserved</p>
+		<p>By YB & Team version 1.0v</p>
+	</div>
+
+</body>
+
+</html>
